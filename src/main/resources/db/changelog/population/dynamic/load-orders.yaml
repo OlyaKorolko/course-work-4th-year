@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-orders
+      author: OlgaKorolko
+      changes:
+        - loadData:
+            tableName: orders
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/orders.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            primaryKey: id
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  startWith: 1
+              - column:
+                  name: creation_date_time
+                  type: timestamp without time zone
+              - column:
+                  name: overall_price
+                  type: numeric
+              - column:
+                  name: user_id
+                  type: numeric
+              - column:
+                  name: order_status
+                  type: numeric
+              - column:
+                  name: event_id
+                  type: numeric

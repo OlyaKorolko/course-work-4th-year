@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-events
+      author: OlgaKorolko
+      changes:
+        - loadData:
+            tableName: event
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/events.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            primaryKey: id
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  startWith: 1
+              - column:
+                  name: start_date_time
+                  type: timestamp without time zone
+              - column:
+                  name: movie_id
+                  type: numeric
+              - column:
+                  name: event_status
+                  type: numeric
+              - column:
+                  name: movie_room_id
+                  type: numeric

@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-movie-rooms
+      author: OlgaKorolko
+      changes:
+        - loadData:
+            tableName: movie_room
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/movie_rooms.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            primaryKey: id
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  startWith: 1
+              - column:
+                  name: capacity
+                  type: numeric
+              - column:
+                  name: room_type_id
+                  type: numeric
+              - column:
+                  name: cinema_id
+                  type: numeric

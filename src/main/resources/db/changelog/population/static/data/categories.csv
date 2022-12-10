@@ -1,0 +1,5 @@
+name;discount_percentage
+ADULT;0
+CHILD;10
+SENIOR;15
+STUDENT;20

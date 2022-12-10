@@ -1,0 +1,27 @@
+databaseChangeLog:
+- changeSet:
+   id: load-user-categories
+   author: OlgaKorolko
+   changes:
+      - loadData:
+         tableName: user_category
+         usePreparedStatements: true
+         separator: ;
+         relativeToChangelogFile: true
+         file: data/categories.csv
+         encoding: UTF-8
+         quotchar: ''''
+         runOnChange: true
+         primaryKey: id
+         columns:
+           - column:
+               name: id
+               type: bigint
+               autoIncrement: true
+               startWith: 1
+           - column:
+               name: name
+               type: string
+           - column:
+               name: discount_percentage
+               type: numeric

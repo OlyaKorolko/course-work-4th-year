@@ -1,0 +1,6 @@
+first_name;last_name;user_name;email;phone;password;city;registration_date_time;birth_date;category_id;role
+anne;smith;anneSmith;anne_smith45@hotmail.com;+375135153145;$2a$10$yoZXL..K/YL59Q2rbhZ6mORSvS4Mm8Hw0v0KfosY.L93yaqpppZXS;Las Vegas;2021-07-23T19:21:56;;1;1
+andrew;holden;aholden;nfcakljvna@gmail.com;476126471247;$2a$10$GRI8jm0eT.7CmYZiAzkq8OKKUZT/z/jY2aKM/Slh8BEKWgbl50LPa;Madrid;2021-03-21T21:07:08;;2;1
+Kate;Hudson;kate_hud_33;jdwae2jfcwe@yahoo.com;+14231723741;$2a$10$qS8nhfFHGKfsYiTdvEOHquaqnK8iKqpswkmha20gTCgli82gACvea;Toronto;2021-01-09T03:21:23;;1;0
+Sam;Havell;fh83effue;samhav6437@gmail.com;+9475604260;$2a$10$xsxUIu6UveAQZuxMkc/b7ev.LgbhAU.MRPFYFg3lSK.tWSfYejm7u;;2021-10-20T09:08:23;;3;1
+Nate;White;nnnate;vnhslkdfjvna@hotmail.com;+073142171246;$2a$10$9YUBGUTofXAkaZkrNpu4a.gOjgThTPmItkoZNlcB5I0ExqTS/bKO.;Helsinki;2021-12-23T23:01:03;;4;1

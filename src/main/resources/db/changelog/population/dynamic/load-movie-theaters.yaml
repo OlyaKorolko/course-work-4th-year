@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-movie-theaters
+      author: OlgaKorolko
+      changes:
+        - loadData:
+            tableName: cinema
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/movie_theaters.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            primaryKey: id
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  startWith: 1
+              - column:
+                  name: name
+                  type: string
+              - column:
+                  name: address
+                  type: string
+              - column:
+                  name: city
+                  type: string
+              - column:
+                  name: email
+                  type: string
+              - column:
+                  name: phone
+                  type: string

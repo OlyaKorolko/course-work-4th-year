@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-movies_genres_link
+      author: OlgaKorolko
+      changes:
+        - delete:
+            tableName: movies_genres_link
+        - loadData:
+            tableName: movies_genres_link
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/movies_genres_links.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            columns:
+              - column:
+                  name: movie_id
+                  type: numeric
+              - column:
+                  name: genre_id
+                  type: numeric

@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-room-types
+      author: OlgaKorolko
+      changes:
+        - loadData:
+            tableName: room_type
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/room_types.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            primaryKey: id
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  startWith: 1
+              - column:
+                  name: name
+                  type: string
+              - column:
+                  name: seat_price
+                  type: numeric

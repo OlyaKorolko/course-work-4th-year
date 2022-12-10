@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-movies
+      author: OlgaKorolko
+      changes:
+        - loadData:
+            tableName: movie
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/movies.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            primaryKey: id
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  startWith: 1
+              - column:
+                  name: duration_in_minutes
+                  type: numeric
+              - column:
+                  name: name
+                  type: string
+              - column:
+                  name: description
+                  type: string
+              - column:
+                  name: price
+                  type: numeric
+              - column:
+                  name: age_rating
+                  type: numeric
+              - column:
+                  name: rating
+                  type: numeric

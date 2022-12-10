@@ -1,0 +1,37 @@
+databaseChangeLog:
+- changeSet:
+    id: 1652867493731-2
+    author: OlgaKorolko (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: password
+            type: varchar(100)
+        tableName: users
+- changeSet:
+    id: 1652867493731-3
+    author: OlgaKorolko (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: UC_ORDERSID_COL
+        tableName: ORDERS
+- changeSet:
+    id: 1652867493731-4
+    author: OlgaKorolko (generated)
+    changes:
+    - dropColumn:
+        columnName: PASSWORD_HASH
+        tableName: USERS
+- changeSet:
+    id: 1652867493731-1
+    author: OlgaKorolko (generated)
+    changes:
+    - addDefaultValue:
+        columnDataType: int not null
+        columnName: role
+        defaultValueNumeric: '1'
+        tableName: users
+

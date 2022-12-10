@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-tickets
+      author: OlgaKorolko
+      changes:
+        - loadData:
+            tableName: ticket
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/tickets.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            primaryKey: id
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  startWith: 1
+              - column:
+                  name: price
+                  type: numeric
+              - column:
+                  name: seat_id
+                  type: numeric
+              - column:
+                  name: order_id
+                  type: numeric

@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-seats
+      author: OlgaKorolko
+      changes:
+        - loadData:
+            tableName: seat
+            usePreparedStatements: true
+            separator: ;
+            relativeToChangelogFile: true
+            file: data/seats.csv
+            encoding: UTF-8
+            quotchar: ''''
+            runOnChange: true
+            primaryKey: id
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  startWith: 1
+              - column:
+                  name: row_number
+                  type: numeric
+              - column:
+                  name: place_number
+                  type: numeric
+              - column:
+                  name: movie_room_id
+                  type: numeric

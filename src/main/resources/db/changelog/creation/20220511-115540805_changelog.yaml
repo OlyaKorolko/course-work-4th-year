@@ -1,0 +1,614 @@
+databaseChangeLog:
+- changeSet:
+    id: 1652270150983-1
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: cinemaPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: address
+            type: VARCHAR(300)
+        - column:
+            constraints:
+              nullable: false
+            name: city
+            type: VARCHAR(30)
+        - column:
+            constraints:
+              nullable: false
+            name: email
+            type: VARCHAR(60)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: phone
+            type: VARCHAR(21)
+        tableName: cinema
+- changeSet:
+    id: 1652270150983-2
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: eventPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: event_status
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: start_date_time
+            type: TIMESTAMP
+        - column:
+            name: movie_id
+            type: BIGINT
+        - column:
+            name: movie_room_id
+            type: BIGINT
+        tableName: event
+- changeSet:
+    id: 1652270150983-3
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: genrePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(20)
+        tableName: genre
+- changeSet:
+    id: 1652270150983-4
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: moviePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: age_rating
+            type: INT
+        - column:
+            name: description
+            type: VARCHAR(1000)
+        - column:
+            constraints:
+              nullable: false
+            name: duration_in_minutes
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: price
+            type: NUMBER(19, 2)
+        - column:
+            name: rating
+            type: DOUBLE
+        tableName: movie
+- changeSet:
+    id: 1652270150983-5
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: movie_roomPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: capacity
+            type: INT
+        - column:
+            name: cinema_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: room_type_id
+            type: BIGINT
+        tableName: movie_room
+- changeSet:
+    id: 1652270150983-6
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: movie_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: genre_id
+            type: BIGINT
+        tableName: movies_genres_link
+- changeSet:
+    id: 1652270150983-7
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ordersPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: creation_date_time
+            type: TIMESTAMP
+        - column:
+            constraints:
+              nullable: false
+            name: order_status
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: overall_price
+            type: NUMBER(19, 2)
+        - column:
+            name: event_id
+            type: BIGINT
+        - column:
+            name: user_id
+            type: BIGINT
+        tableName: orders
+- changeSet:
+    id: 1652270150983-8
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: room_typePK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(10)
+        - column:
+            constraints:
+              nullable: false
+            name: seat_price
+            type: NUMBER(19, 2)
+        tableName: room_type
+- changeSet:
+    id: 1652270150983-9
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: seatPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: place_number
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: row_number
+            type: INT
+        - column:
+            name: movie_room_id
+            type: BIGINT
+        tableName: seat
+- changeSet:
+    id: 1652270150983-10
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ticketPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: price
+            type: NUMBER(19, 2)
+        - column:
+            name: order_id
+            type: BIGINT
+        - column:
+            name: seat_id
+            type: BIGINT
+        tableName: ticket
+- changeSet:
+    id: 1652270150983-11
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_categoryPK
+            name: id
+            type: BIGINT
+        - column:
+            name: discount_percentage
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(10)
+        tableName: user_category
+- changeSet:
+    id: 1652270150983-12
+    author: OlgaKorolko (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: usersPK
+            name: id
+            type: BIGINT
+        - column:
+            name: address
+            type: VARCHAR(200)
+        - column:
+            name: birth_date
+            type: date
+        - column:
+            name: city
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: email
+            type: VARCHAR(60)
+        - column:
+            constraints:
+              nullable: false
+            name: first_name
+            type: VARCHAR(30)
+        - column:
+            constraints:
+              nullable: false
+            name: last_name
+            type: VARCHAR(30)
+        - column:
+            constraints:
+              nullable: false
+            name: password_hash
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: phone
+            type: VARCHAR(21)
+        - column:
+            constraints:
+              nullable: false
+            name: registration_date_time
+            type: TIMESTAMP
+        - column:
+            constraints:
+              nullable: false
+            name: role
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: user_name
+            type: VARCHAR(60)
+        - column:
+            constraints:
+              nullable: false
+            name: category_id
+            type: BIGINT
+        tableName: users
+- changeSet:
+    id: 1652270150983-13
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: email
+        constraintName: UC_CINEMAEMAIL_COL
+        tableName: cinema
+- changeSet:
+    id: 1652270150983-14
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name
+        constraintName: UC_CINEMANAME_COL
+        tableName: cinema
+- changeSet:
+    id: 1652270150983-15
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name
+        constraintName: UC_GENRENAME_COL
+        tableName: genre
+- changeSet:
+    id: 1652270150983-16
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name
+        constraintName: UC_MOVIENAME_COL
+        tableName: movie
+- changeSet:
+    id: 1652270150983-17
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: id
+        constraintName: UC_ORDERSID_COL
+        tableName: orders
+- changeSet:
+    id: 1652270150983-18
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name
+        constraintName: UC_ROOM_TYPENAME_COL
+        tableName: room_type
+- changeSet:
+    id: 1652270150983-19
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: email
+        constraintName: UC_USERSEMAIL_COL
+        tableName: users
+- changeSet:
+    id: 1652270150983-20
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: user_name
+        constraintName: UC_USERSUSER_NAME_COL
+        tableName: users
+- changeSet:
+    id: 1652270150983-21
+    author: OlgaKorolko (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name
+        constraintName: UC_USER_CATEGORYNAME_COL
+        tableName: user_category
+- changeSet:
+    id: 1652270150983-22
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: orders
+        constraintName: FK32ql8ubntj5uh44ph9659tiih
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1652270150983-23
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: movie_room_id
+        baseTableName: event
+        constraintName: FK3ho248j8l5r2l79vwa27q8ukx
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: movie_room
+        validate: true
+- changeSet:
+    id: 1652270150983-24
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: room_type_id
+        baseTableName: movie_room
+        constraintName: FKbggwfx8wfogm8uw7cb6vqjg7v
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: room_type
+        validate: true
+- changeSet:
+    id: 1652270150983-25
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: movie_id
+        baseTableName: movies_genres_link
+        constraintName: FKf2sxwpg9t6tdxixkdj6gsth3k
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: movie
+        validate: true
+- changeSet:
+    id: 1652270150983-26
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: cinema_id
+        baseTableName: movie_room
+        constraintName: FKfkxyetjvalt5jlkumqkyp4u03
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: cinema
+        validate: true
+- changeSet:
+    id: 1652270150983-27
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: order_id
+        baseTableName: ticket
+        constraintName: FKfxop4bl4yxuwgij2pa9ghtal6
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: orders
+        validate: true
+- changeSet:
+    id: 1652270150983-28
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: movie_id
+        baseTableName: event
+        constraintName: FKkl9uas9nf965t0rko11h4b5hc
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: movie
+        validate: true
+- changeSet:
+    id: 1652270150983-29
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: genre_id
+        baseTableName: movies_genres_link
+        constraintName: FKkwc38mhaba2b8l9luhecym4rf
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: genre
+        validate: true
+- changeSet:
+    id: 1652270150983-30
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: event_id
+        baseTableName: orders
+        constraintName: FKmg5djn8knpgswktdindbd3uj0
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: event
+        validate: true
+- changeSet:
+    id: 1652270150983-31
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: category_id
+        baseTableName: users
+        constraintName: FKnme06vnmhhjx5v6b6m33jgerv
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user_category
+        validate: true
+- changeSet:
+    id: 1652270150983-32
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: seat_id
+        baseTableName: ticket
+        constraintName: FKqahao9a85drt47ikjp0b8syvh
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: seat
+        validate: true
+- changeSet:
+    id: 1652270150983-33
+    author: OlgaKorolko (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: movie_room_id
+        baseTableName: seat
+        constraintName: FKs16j5xiqsx6gt5jf1yjn5e40f
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: movie_room
+        validate: true
+
